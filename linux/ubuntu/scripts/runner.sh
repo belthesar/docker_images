@@ -5,9 +5,9 @@ set -Eeuxo pipefail
 
 printf "\n\t🐋 Creating runner users 🐋\t\n"
 groupadd -g 1001 "${RUNNER}"
-groupadd -g 1000 "${RUNNER}admin"
+groupadd -g 2000 "${RUNNER}admin"
 useradd -u 1001 -g "${RUNNER}" -G sudo -m -s /bin/bash "${RUNNER}"
-useradd -u 1000 -g "${RUNNER}admin" -G sudo -m -s /bin/bash "${RUNNER}admin"
+useradd -u 2000 -g "${RUNNER}admin" -G sudo -m -s /bin/bash "${RUNNER}admin"
 usermod -aG docker "runner"
 usermod -aG docker "runneradmin"
 {
